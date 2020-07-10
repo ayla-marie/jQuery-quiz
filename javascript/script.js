@@ -1,5 +1,3 @@
-//question index
-
 $(document).ready(function() {
   const allQuestions = [
     "A labrodoodle is a mix between a labrador and a...",
@@ -14,7 +12,7 @@ $(document).ready(function() {
 
   //variable to keep track of progress
   var num = 0;
-  let score;
+  var score = 0;
 
   //set question content
   function setQuestion() {
@@ -27,34 +25,28 @@ $(document).ready(function() {
     return num;
   }
 
-  //a is right answer
-  function ArightAns() {
-    if (num === 0) {
-      score = score + 1;
+  function rightAns(op) {
+    function eval(n) {
+      if (num === n) {
+        score = score + 1;
+      }
     }
-    return score;
-  }
-  //b is right answer
-  function BrightAns() {
+    if (op === a) {
+      eval(0);
+    }
+    if (op === b) {
+      eval(2);
+    }
+    if (op === c) {
+      eval(1);
+    }
+    if (op === d) {
+      eval(3);
+    }
+    $("#score").text("Score: " + score);
     if (num === 2) {
-      score = score + 1;
       endQuiz();
     }
-    return score;
-  }
-  //c is right answer
-  function CrightAns() {
-    if (num === 1) {
-      score = score + 1;
-    }
-    return score;
-  }
-  //d is right answer
-  function DrightAns() {
-    if (num === 3) {
-      score = score + 1;
-    }
-    return score;
   }
 
   //function endQuiz
@@ -70,8 +62,10 @@ $(document).ready(function() {
       .click(function() {
         num = 0;
         score = 0;
+        $("#score")
+          .text("Score: " + score)
+          .show();
         $(".choice").show();
-        $("#score").show();
         loadQuestion();
       });
   }
@@ -82,7 +76,6 @@ $(document).ready(function() {
     $("#b").text(allB[0]);
     $("#c").text(allC[0]);
     $("#d").text(allD[0]);
-    score = 0;
   }
 
   //hover listeners
@@ -96,23 +89,19 @@ $(document).ready(function() {
     $("#submit").hide();
   });
   $("#a").click(function() {
-    ArightAns();
+    rightAns(a);
     setQuestion();
-    $("#score").text("Score: " + score);
   });
   $("#b").click(function() {
-    BrightAns();
+    rightAns(b);
     setQuestion();
-    $("#score").text("Score: " + score);
   });
   $("#c").click(function() {
-    CrightAns();
+    rightAns(c);
     setQuestion();
-    $("#score").text("Score: " + score);
   });
   $("#d").click(function() {
-    DrightAns();
+    rightAns(d);
     setQuestion();
-    $("#score").text("Score: " + score);
   });
 });
