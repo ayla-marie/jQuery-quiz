@@ -62,10 +62,7 @@ $(document).ready(function() {
     $("#question").text(
       "You finished with a score of " + score + "/" + allQuestions.length + "."
     );
-    $("#a").hide();
-    $("#b").hide();
-    $("#c").hide();
-    $("#d").hide();
+    $(".choice").hide();
     $("#score").hide();
     $("#submit")
       .show()
@@ -73,10 +70,7 @@ $(document).ready(function() {
       .click(function() {
         num = 0;
         score = 0;
-        $("#a").show();
-        $("#b").show();
-        $("#c").show();
-        $("#d").show();
+        $(".choice").show();
         $("#score").show();
         loadQuestion();
       });
@@ -92,16 +86,7 @@ $(document).ready(function() {
   }
 
   //hover listeners
-  $("#a").hover(function() {
-    $(this).toggleClass("choice-select");
-  });
-  $("#b").hover(function() {
-    $(this).toggleClass("choice-select");
-  });
-  $("#c").hover(function() {
-    $(this).toggleClass("choice-select");
-  });
-  $("#d").hover(function() {
+  $(".choice").hover(function() {
     $(this).toggleClass("choice-select");
   });
 
