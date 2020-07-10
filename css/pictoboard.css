@@ -1,0 +1,61 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
+
+body {
+  background-color: antiquewhite;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Quicksand", sans-serif;
+}
+
+.choice {
+  background-color: lightcyan;
+  border: 3px solid navy;
+}
+
+.choice-select {
+  background-color: white;
+  border: 3px solid yellowgreen;
+}
+
+.grid {
+  display: grid;
+  grid: 40px / auto auto;
+  gap: 20px;
+}
+.grid button {
+  border-radius: 10px;
+  font-family: "Quicksand", sans-serif;
+  font-size: 18px;
+  min-height: 40px;
+}
+
+#container {
+  width: 400px;
+  height: 300px;
+  background-color: lightblue;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 30px;
+  border-radius: 50px;
+}
+#score {
+  font-size: 14px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+#question {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 10px;
+}
+#submit {
+  display: inline-block;
+  width: 100%;
+  font-family: "Quicksand", sans-serif;
+  font-size: 20px;
+  border-radius: 30px;
+  background-color: yellowgreen;
+}
