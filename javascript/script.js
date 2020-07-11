@@ -14,14 +14,19 @@ $(document).ready(function() {
   var num = 0;
   var score = 0;
 
-  //set question content
-  function setQuestion() {
-    num = num + 1;
+  //load questions
+  function loadQuestion() {
     $("#question").text(allQuestions[num]);
     $("#a").text(allA[num]);
     $("#b").text(allB[num]);
     $("#c").text(allC[num]);
     $("#d").text(allD[num]);
+  }
+
+  //set question content
+  function setQuestion() {
+    num = num + 1;
+    loadQuestion();
     return num;
   }
 
@@ -44,7 +49,8 @@ $(document).ready(function() {
       eval(3);
     }
     $("#score").text("Score: " + score);
-    if (num === 2) {
+    setQuestion();
+    if (num === 3) {
       endQuiz();
     }
   }
@@ -54,8 +60,7 @@ $(document).ready(function() {
     $("#question").text(
       "You finished with a score of " + score + "/" + allQuestions.length + "."
     );
-    $(".choice").hide();
-    $("#score").hide();
+    $(".choice, #submit").hide();
     $("#submit")
       .show()
       .text("Restart?")
@@ -68,14 +73,6 @@ $(document).ready(function() {
         $(".choice").show();
         loadQuestion();
       });
-  }
-  //load first question
-  function loadQuestion() {
-    $("#question").text(allQuestions[0]);
-    $("#a").text(allA[0]);
-    $("#b").text(allB[0]);
-    $("#c").text(allC[0]);
-    $("#d").text(allD[0]);
   }
 
   //hover listeners
@@ -90,18 +87,14 @@ $(document).ready(function() {
   });
   $("#a").click(function() {
     rightAns(a);
-    setQuestion();
   });
   $("#b").click(function() {
     rightAns(b);
-    setQuestion();
   });
   $("#c").click(function() {
     rightAns(c);
-    setQuestion();
   });
   $("#d").click(function() {
     rightAns(d);
-    setQuestion();
   });
 });
