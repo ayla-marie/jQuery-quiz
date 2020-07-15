@@ -10,24 +10,28 @@
       integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="css/pictoboard.css" />
+    <link rel="stylesheet" href="css/style.css" />
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="javascript/script.js"></script>
     <title>Quiz</title>
   </head>
   <body>
     <div id="container">
-      <div>
-        <p id="question">Take the quiz!</p>
-        <div class="grid">
-          <button class="choice" id="a" value="a">A</button>
-          <button class="choice" id="b" value="b">B</button>
-          <button class="choice" id="c" value="c">C</button>
-          <button class="choice" id="d" value="d">D</button>
-        </div>
-        <div id="score">Score:</div>
-        <button id="submit">Start</button>
+      <div class="startScreen">
+        <img
+          src="https://i.pinimg.com/736x/f2/a5/7e/f2a57e1a505e5ece7018debc0a9d091c.jpg"
+        />
       </div>
+      <div class="testScreen">
+        <p id="question"></p>
+        <div class="grid">
+          <button class="choice" id="a" value="a"></button>
+          <button class="choice" id="b" value="b"></button>
+          <button class="choice" id="c" value="c"></button>
+          <button class="choice" id="d" value="d"></button>
+        </div>
+      </div>
+      <button id="submit">Start</button>
     </div>
   </body>
 </html>

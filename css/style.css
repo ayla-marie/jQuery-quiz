@@ -8,6 +8,14 @@ body {
   justify-content: center;
   font-family: "Quicksand", sans-serif;
 }
+.startScreen img {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  height: 500px;
+  border: 3px solid navy;
+  border-radius: 20px;
+}
 
 .choice {
   background-color: lightcyan;
@@ -21,25 +29,33 @@ body {
 
 .grid {
   display: grid;
-  grid: 40px / auto auto;
+  grid: 80px / auto auto;
   gap: 20px;
 }
 .grid button {
   border-radius: 10px;
   font-family: "Quicksand", sans-serif;
   font-size: 18px;
-  min-height: 40px;
+  height: 80px;
 }
 
 #container {
-  width: 400px;
-  height: 300px;
+  width: fit-content;
+  height: fit-content;
+}
+.testScreen {
+  display: none;
+  flex-direction: column;
+  max-width: 1000px;
+  min-width: 500px;
+  height: 400px;
   background-color: lightblue;
   padding-left: 15px;
   padding-right: 15px;
   padding-top: 30px;
   border-radius: 50px;
 }
+
 #score {
   font-size: 14px;
   margin-top: 20px;
@@ -52,8 +68,9 @@ body {
   padding-bottom: 10px;
 }
 #submit {
+  margin-top: 30px;
   display: inline-block;
-  width: 100%;
+  width: 500px;
   font-family: "Quicksand", sans-serif;
   font-size: 20px;
   border-radius: 30px;
