@@ -26,6 +26,10 @@ body {
   background-color: white;
   border: 3px solid yellowgreen;
 }
+.choice-submit {
+  background-color: #d6f993;
+  border: 3px solid yellowgreen;
+}
 
 .grid {
   display: grid;
@@ -38,10 +42,22 @@ body {
   font-size: 18px;
   height: 80px;
 }
+.navigation {
+  display: flex;
+  margin-top: 80px;
+}
+#back {
+  margin-right: 30px;
+}
+
+#next {
+  margin-left: 430px;
+}
 
 #container {
-  width: fit-content;
-  height: fit-content;
+  width: 600px;
+  height: 400px;
+  padding: 10px;
 }
 .testScreen {
   display: none;
@@ -65,7 +81,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-bottom: 10px;
+  padding: 10px;
 }
 #submit {
   margin-top: 30px;
