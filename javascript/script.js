@@ -113,7 +113,7 @@ $(document).ready(function() {
     loadQuestion();
     return num;
   }
-
+  //calc scores for personality traits on scales
   function calcScores(op) {
     if (op === a) {
       if (num >= 0 && num <= 7) {
@@ -160,6 +160,22 @@ $(document).ready(function() {
       }
     }
   }
+  //function to determine value of op
+  function opValue() {
+    if ($("#a").class === "choice-submit") {
+      return a;
+    } else if ($("#b").class === "choice-submit") {
+      return b;
+    } else if ($("#c").class === "choice-submit") {
+      return c;
+    } else if ($("#d").class === "choice-submit") {
+      return d;
+    } else {
+      return false;
+    }
+  }
+
+  //use calcScores to determine 4-letter type
   function fourLetters() {
     if (IE < 0) {
       letterOne = "I";
@@ -191,15 +207,17 @@ $(document).ready(function() {
     fourLetters();
     $("#question").text("You are an " + type);
     $(".choice, #submit").hide();
+    $(".nav").hide();
     $("#submit")
       .show()
       .text("Restart?")
       .click(function() {
         num = 0;
-        score = 0;
-        $("#score")
-          .text("Score: " + score)
-          .show();
+        FT = 0;
+        NS = 0;
+        IE = 0;
+        PJ = 0;
+        $(".nav").show();
         $(".choice").show();
         loadQuestion();
       });
@@ -209,27 +227,52 @@ $(document).ready(function() {
     $(this).toggleClass("choice-select");
   });
 
-  //click listeners
+  //click listener submit
   $("#submit").click(function() {
     $(".startScreen").css("display", "none");
     $(".testScreen").css("display", "flex");
     $("#submit").hide();
     loadQuestion();
   });
-  $("#a").click(function() {
+
+  //click listener for next
+  $("#next").click(function() {
+    calcScores(opValue());
+    console.log(opValue());
     setQuestion();
-    calcScores(a);
+    $("#a, #b, #c, #d")
+      .removeClass("choice-submit")
+      .addClass("choice");
+  });
+  //click listener for back
+  $("#back").click(function() {
+    num = num - 2;
+    setQuestion();
+  });
+
+  //click listeners for options a, b, c, d so that they toggle to a submit status
+  $("#a").click(function() {
+    $("#a").toggleClass("choice-submit");
+    $("#b, #c, #d")
+      .removeClass("choice-submit")
+      .addClass("choice");
   });
   $("#b").click(function() {
-    setQuestion();
-    calcScores(b);
+    $("#b").toggleClass("choice-submit");
+    $("#a, #c, #d")
+      .removeClass("choice-submit")
+      .addClass("choice");
   });
   $("#c").click(function() {
-    setQuestion();
-    calcScores(c);
+    $("#c").toggleClass("choice-submit");
+    $("#b, #a, #d")
+      .removeClass("choice-submit")
+      .addClass("choice");
   });
   $("#d").click(function() {
-    setQuestion();
-    calcScores(d);
+    $("#d").toggleClass("choice-submit");
+    $("#b, #c, #a")
+      .removeClass("choice-submit")
+      .addClass("choice");
   });
 });
