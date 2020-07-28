@@ -18,30 +18,45 @@ body {
 }
 
 .choice {
-  background-color: lightcyan;
+  display: flex;
+  flex-direction: row;
+}
+.choice input {
+  height: 30px;
+  width: 30px;
   border: 3px solid navy;
+  background-color: lightcyan;
+  border-radius: 30px;
+  margin-right: 20px;
+  margin-top: 18px;
 }
-
-.choice-select {
+.choice-hover input {
+  height: 30px;
+  width: 30px;
+  border: 3px solid yellowgreen;
   background-color: white;
-  border: 3px solid yellowgreen;
+  border-radius: 30px;
+  margin-right: 20px;
+  margin-top: 18px;
 }
-.choice-submit {
-  background-color: #d6f993;
-  border: 3px solid yellowgreen;
+.choice-click p {
+  font-weight: bolder;
+}
+.choice-click input {
+  height: 30px;
+  width: 30px;
+  border: 3px solid green;
+  background-color: yellowgreen;
+  border-radius: 30px;
+  margin-right: 20px;
+  margin-top: 18px;
 }
 
 .grid {
-  display: grid;
-  grid: 80px / auto auto;
-  gap: 20px;
+  display: flex;
+  flex-direction: column;
 }
-.grid button {
-  border-radius: 10px;
-  font-family: "Quicksand", sans-serif;
-  font-size: 18px;
-  height: 80px;
-}
+
 .navigation {
   display: flex;
   margin-top: 80px;
@@ -72,18 +87,13 @@ body {
   border-radius: 50px;
 }
 
-#score {
-  font-size: 14px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
 #question {
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 10px;
 }
-#submit {
+#start {
   margin-top: 30px;
   display: inline-block;
   width: 500px;
